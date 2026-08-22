@@ -50,7 +50,36 @@ button{cursor:pointer}
 .mono{
   font-family:"JetBrains Mono","SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
 }
+#app{width:min(1180px,100%);margin:0 auto}
 
+.topbar{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.9);
+  box-shadow:var(--shadow-soft);
+  padding:14px 18px;
+  border-radius:18px;
+  position:relative;
+  overflow:hidden;
+}
+.topbar:after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:0;height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--violet),transparent);
+  opacity:.8;
+}
+.brand{display:flex;align-items:center;gap:13px}
+.brand-mark{
+  width:40px;height:40px;border:1px solid #bcd0ee;border-radius:11px;
+  display:grid;place-items:center;background:#f8fbff;
+  color:var(--blue);font-weight:900;font-size:16px;
+  box-shadow:inset 0 0 0 4px #f2f7ff;
+}
 .brand-title{font-weight:900;letter-spacing:.06em;font-size:19px;line-height:1}
 .brand-title span{color:var(--blue)}
 .brand-sub{
@@ -276,13 +305,8 @@ footer{
 
 <div id="app">
   <header class="topbar">
-    <div class="brand">
-      <div class="brand-mark">&lt;/&gt;</div>
-      <div>
-        <div class="brand-title">BUGGY<span>.IO</span></div>
-        <span class="brand-sub">JAVA DEBUG PROTOCOL</span>
-      </div>
-    </div>
+    <div class="top-status">
+      <div class="progress-wrap">
         <div class="progress-meta">
           <span>CHALLENGE</span>
           <span class="progress-text" id="progressLabel"></span>
@@ -295,22 +319,18 @@ footer{
   <section class="screen active" id="screen-start">
     <div class="start-shell">
       <div class="start-inner">
-        <div class="system-pill"><span class="status-dot"></span> JAVA ENGINE v1.0 · READY</div>
         <div class="hero-logo">BUGGY<span>.IO</span></div>
         <div class="hero-sub">JAVA DEBUG PROTOCOL</div>
         <p class="hero-copy">
-          <strong>Test your programming knowledge.</strong><br>
-          Find the bug. Fix the logic. Survive all 20 challenges.
+          <strong>Test your programming knowledge.</strong>
         </p>
 
         <div class="init-card">
-          <div class="terminal-line">SYSTEM INITIALIZATION</div>
           <label class="field-label" for="nameInput">PLAYER ID</label>
           <input type="text" id="nameInput" placeholder="Enter your name" autocomplete="off" maxlength="30">
           <div class="row">
             <button class="primary-btn" id="startBtn">INITIALIZE GAME <span>→</span></button>
           </div>
-          <div class="ready-line"><span>●</span> READY TO DEBUG...</div>
         </div>
       </div>
     </div>
@@ -412,7 +432,7 @@ footer{
     </div>
   </section>
 
-  <footer>BUGGY.IO · JAVA DEBUG PROTOCOL · SUMMATIVE 1</footer>
+  <footer>SUMMATIVE 1</footer>
 </div>
 
 <script>
